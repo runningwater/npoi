@@ -106,6 +106,10 @@ namespace NPOI.OpenXmlFormats.Dml.Chart
             sw.Write(string.Format("</c:{0}>", nodeName));
         }
 
+        public int GetSeriesCount()
+        {
+            return this.serField == null ? 0 : this.serField.Count;
+        }
 
         [XmlElement(Order = 0)]
         public CT_Grouping grouping
@@ -573,8 +577,6 @@ namespace NPOI.OpenXmlFormats.Dml.Chart
                 this.grouping.Write(sw, "grouping");
             if (this.varyColors != null)
                 this.varyColors.Write(sw, "varyColors");
-            if (this.dLbls != null)
-                this.dLbls.Write(sw, "dLbls");
             if (this.dropLines != null)
                 this.dropLines.Write(sw, "dropLines");
             if (this.ser != null)
@@ -584,6 +586,8 @@ namespace NPOI.OpenXmlFormats.Dml.Chart
                     x.Write(sw, "ser");
                 }
             }
+            if (this.dLbls != null)
+                this.dLbls.Write(sw, "dLbls");
             if (this.axId != null)
             {
                 foreach (CT_UnsignedInt x in this.axId)
@@ -601,6 +605,10 @@ namespace NPOI.OpenXmlFormats.Dml.Chart
             sw.Write(string.Format("</c:{0}>", nodeName));
         }
 
+        public int GetSeriesCount()
+        {
+            return this.serField == null ? 0 : this.serField.Count;
+        }
 
         [XmlElement(Order = 0)]
         public CT_Grouping grouping

@@ -364,7 +364,9 @@ namespace NPOI.XSSF.UserModel
                 sheets = new List<XSSFSheet>(shIdMap.Count);
                 foreach (CT_Sheet ctSheet in this.workbook.sheets.sheet)
                 {
-                    XSSFSheet sh = shIdMap[ctSheet.id];
+                    XSSFSheet sh = null;
+                    if(shIdMap.ContainsKey(ctSheet.id))
+                        sh = shIdMap[ctSheet.id];
                     if (sh == null)
                     {
                         logger.Log(POILogger.WARN, "Sheet with name " + ctSheet.name + " and r:id " + ctSheet.id + " was defined, but didn't exist in package, skipping");
@@ -539,35 +541,29 @@ namespace NPOI.XSSF.UserModel
             return srcSheet.CopySheet(srcSheet.SheetName);
         }
 
-
-        /**
-         * Create a new XSSFCellStyle and add it to the workbook's style table
-         *
-         * @return the new XSSFCellStyle object
-         */
+        /// <summary>
+        /// Create a new XSSFCellStyle and add it to the workbook's style table
+        /// </summary>
+        /// <returns>the new XSSFCellStyle object</returns>
         public ICellStyle CreateCellStyle()
         {
             return stylesSource.CreateCellStyle();
         }
 
-        /**
-         * Returns the instance of XSSFDataFormat for this workbook.
-         *
-         * @return the XSSFDataFormat object
-         * @see NPOI.ss.usermodel.DataFormat
-         */
+        /// <summary>
+        /// Returns the instance of XSSFDataFormat for this workbook.
+        /// </summary>
+        /// <returns>the XSSFDataFormat object</returns>
         public IDataFormat CreateDataFormat()
         {
             if (formatter == null)
                 formatter = new XSSFDataFormat(stylesSource);
             return formatter;
         }
-
-        /**
-         * Create a new Font and add it to the workbook's font table
-         *
-         * @return new font object
-         */
+        /// <summary>
+        /// Create a new Font and add it to the workbook's font table
+        /// </summary>
+        /// <returns></returns>
         public IFont CreateFont()
         {
             XSSFFont font = new XSSFFont();
@@ -666,6 +662,7 @@ namespace NPOI.XSSF.UserModel
             CT_Sheet sheet = AddSheet(sheetname);
 
             int sheetNumber = 1;
+            //TODO: this is extra somehow
             foreach (XSSFSheet sh in sheets) sheetNumber = (int)Math.Max(sh.sheet.sheetId + 1, sheetNumber);
 
             outerloop:
@@ -1623,7 +1620,7 @@ namespace NPOI.XSSF.UserModel
          * </p>
          * @return true if the date systems used in the workbook starts in 1904
          */
-        internal bool IsDate1904()
+        public bool IsDate1904()
         {
             CT_WorkbookPr workbookPr = workbook.workbookPr;
             return workbookPr.date1904Specified && workbookPr.date1904;
@@ -2076,6 +2073,11 @@ namespace NPOI.XSSF.UserModel
 
         }
 
+        public bool Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
 
 
         #endregion
@@ -2132,7 +2134,7 @@ namespace NPOI.XSSF.UserModel
 
         public bool Contains(ISheet item)
         {
-            throw new NotImplementedException();
+            return this.sheets.Contains(item as XSSFSheet);
         }
 
         public void CopyTo(ISheet[] array, int arrayIndex)

@@ -371,8 +371,6 @@ namespace NPOI.OpenXmlFormats.Dml.Chart
                 this.radarStyle.Write(sw, "radarStyle");
             if (this.varyColors != null)
                 this.varyColors.Write(sw, "varyColors");
-            if (this.dLbls != null)
-                this.dLbls.Write(sw, "dLbls");
             if (this.ser != null)
             {
                 foreach (CT_RadarSer x in this.ser)
@@ -380,6 +378,8 @@ namespace NPOI.OpenXmlFormats.Dml.Chart
                     x.Write(sw, "ser");
                 }
             }
+            if (this.dLbls != null)
+                this.dLbls.Write(sw, "dLbls");
             if (this.axId != null)
             {
                 foreach (CT_UnsignedInt x in this.axId)
@@ -397,6 +397,10 @@ namespace NPOI.OpenXmlFormats.Dml.Chart
             sw.Write(string.Format("</c:{0}>", nodeName));
         }
 
+        public int GetSeriesCount()
+        {
+            return this.serField == null ? 0 : this.serField.Count;
+        }
 
         [XmlElement(Order = 0)]
         public CT_RadarStyle radarStyle

@@ -557,7 +557,7 @@ namespace TestCases.SS.UserModel
             IPatternFormatting fmt4 = rule3.GetPatternFormatting();
             //        Assert.AreEqual(HSSFColor.LIGHT_CORNFLOWER_BLUE.index, fmt4.FillBackgroundColor);
             //        Assert.AreEqual(HSSFColor.Automatic.index, fmt4.FillForegroundColor);
-            Assert.AreEqual((short)FillPattern.NoFill, fmt4.FillPattern);
+            Assert.AreEqual(FillPattern.NoFill, fmt4.FillPattern);
             // borders are not Set
             Assert.IsNull(rule3.GetBorderFormatting());
 
@@ -668,13 +668,13 @@ namespace TestCases.SS.UserModel
             Assert.AreEqual(HSSFColor.Blue.Index, patternFmt.FillForegroundColor);
 
             Assert.AreEqual((short)FillPattern.NoFill, patternFmt.FillPattern);
-            patternFmt.FillPattern = (short)FillPattern.SolidForeground;
+            patternFmt.FillPattern = FillPattern.SolidForeground;
             Assert.AreEqual((short)FillPattern.SolidForeground, patternFmt.FillPattern);
             patternFmt.FillPattern = (short)FillPattern.NoFill;
             Assert.AreEqual((short)FillPattern.NoFill, patternFmt.FillPattern);
             if (this._testDataProvider.GetSpreadsheetVersion() == SpreadsheetVersion.EXCEL97)
             {
-                patternFmt.FillPattern = (short)FillPattern.Bricks;
+                patternFmt.FillPattern = FillPattern.Bricks;
                 Assert.AreEqual((short)FillPattern.Bricks, patternFmt.FillPattern);
             }
 

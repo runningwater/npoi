@@ -11,13 +11,12 @@
 [Dd]ebug/
 [Rr]elease/
 x64/
-build/
 [Bb]in/
 [Oo]bj/
 Lib/
-
-# Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
-!packages/*/build/
+packages/
+# Visual Studio 2015 cache/options directory
+.vs/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -25,6 +24,7 @@ Lib/
 
 *_i.c
 *_p.c
+*_i.h
 *.ilk
 *.meta
 *.obj
@@ -51,9 +51,11 @@ Lib/
 ipch/
 *.aps
 *.ncb
+*.opendb
 *.opensdf
 *.sdf
 *.cachefile
+*.VC.db
 
 # Visual Studio profiler
 *.psess

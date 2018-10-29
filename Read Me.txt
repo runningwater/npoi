@@ -12,37 +12,31 @@ used to create search engines).
 =========================
 Neuzilla is the studio behind NPOI. While using NPOI, you are becoming one of Neuzilla's clients. 
 
-Neuzilla's homepage: http://blog.neuzilla.com
-To follow us, please visit http://www.linkedin.com/company/neuzilla 
-Neuzilla WeChat Public Account: Neuzilla or 架构师联盟
-
-Neuzilla's logo: /logo/neuzilla
+For commercial cooperation or support service consulting, please contact support@neuzilla.com
 
 ==================
 *  NPOI Website *
 ==================
 https://github.com/tonyqus/npoi/ (Latest source code available)
-http://npoi.codeplex.com (No latest source code available)
-http://www.npoi.info (Official Tutorial in Chinese)
+http://npoi.codeplex.com (Deprecated)
+
 
 ======================
 * System Requirement *
 ======================
+VS2017
 VS2013
 VS2010 with .NET 2.0 or .NET 4.0
-VS2005 or VS2008 with .NET 2.0 Runtime (SP1) 
-vs2003 with .NET 1.1 
+VS2005 or VS2008 with .NET 2.0 Runtime (SP1) (Deprecated)
+vs2003 with .NET 1.1 (Deprecated)
 medium trust environment in ASP.NET
 
 =================
-*  Neuzilla on SNS  *
+*  Neuzilla on Internet  *
 =================
-Linkedin Homepage: http://www.linkedin.com/company/neuzilla
-Linkedin User Group: http://www.linkedin.com/groups/NPOI-User-Group-6655065 
-新浪微博: http://t.sina.com.cn/npoi 
-Twitter: http://twitter.com/tonyqus 
-企业客户QQ群: 116053476
-个人客户QQ群：20144214
+Homepage on Linkedin: http://www.linkedin.com/company/neuzilla
+User Group on Linkedin: http://www.linkedin.com/groups/NPOI-User-Group-6655065 
+QQ Group: 116053476 
 
 ================
 * Team Members *
@@ -56,7 +50,7 @@ Time Zone: GMT+8
 --------------------------------------------------------------------------------
 NPOI 1.2.1
 --------------------------------------------------------------------------------
-Hüseyin Tüfekcilerli - developer
+H锟斤拷seyin T锟斤拷fekcilerli - developer
 --------------------
 From: Istanbul, Turkey
 Participated since Nov, 2008
@@ -140,7 +134,8 @@ Main contribution: XSSF bug fixing and feature implement
 
 NPOI 2.2
 --------------------------------------------------------------------------------
-Antony - main contributor
+Antony
+Tony Qu
 
 ==================
 * How to join us *

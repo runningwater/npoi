@@ -1647,15 +1647,6 @@ namespace NPOI.XSSF.UserModel
             bug53798Work(wb, xlsOutput);
         }
 
-        [Ignore("Shifting rows is not yet implemented in XSSFSheet")]
-        [Test]
-        public void TestBug53798XLSXStream()
-        {
-            XSSFWorkbook wb = XSSFTestDataSamples.OpenSampleWorkbook("53798_ShiftNegative_TMPL.xlsx");
-            //FileInfo xlsOutput = TempFile.CreateTempFile("testBug53798", ".xlsx");
-            //bug53798Work(new SXSSFWorkbook(wb), xlsOutput);
-        }
-
         [Test]
         public void TestBug53798XLS()
         {
@@ -2565,7 +2556,7 @@ namespace NPOI.XSSF.UserModel
          *  32,767 must not be -32,768, then -32,767, -32,766
          *  long time test, run over 1 minute.
          */
-        [Test]
+        [Test, RunSerialyAndSweepTmpFiles]
         public void Bug57880()
         {
             Console.WriteLine("long time test, run over 1 minute.");
@@ -2612,6 +2603,8 @@ namespace NPOI.XSSF.UserModel
 
             wb.Close();
             tmp.Delete();
+
+            Assert.AreEqual(0, Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.tmp").Length, "At Last: There are no temporary files.");
         }
 
     }

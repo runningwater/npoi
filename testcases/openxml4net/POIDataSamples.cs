@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using NPOI.HSSF.UserModel;
+using NUnit.Framework;
 
 namespace TestCases
 {
@@ -66,7 +67,7 @@ namespace TestCases
 
         public static POIDataSamples GetOpenXml4NetInstance()
         {
-            if (_instDiagram == null) _instDiagram = new POIDataSamples("OpenXml4Net");
+            if (_instDiagram == null) _instDiagram = new POIDataSamples("openxml4j");
             return _instDiagram;
         }
 
@@ -119,7 +120,7 @@ namespace TestCases
                         + TEST_PROPERTY
                         + "' before running tests");
 
-            string dataDir = string.Format(@"{0}\{1}\", dataDirName, _moduleDir);
+            string dataDir = Path.Combine(TestContext.CurrentContext.TestDirectory, dataDirName, _moduleDir);
             if (!Directory.Exists(dataDir))
             {
                 throw new IOException("Data dir '" + dataDirName + "\\" + _moduleDir
